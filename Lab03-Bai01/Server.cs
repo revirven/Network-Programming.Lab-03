@@ -72,7 +72,7 @@ namespace Lab03_Bai01
             KeepListening = false;
             if (udpClient != null)
             {
-                udpClient.Close();
+                udpClient.Close(); // Đóng socket để ngừng chiếm dụng port
             }
         }
     }

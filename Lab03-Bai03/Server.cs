@@ -65,11 +65,12 @@ namespace Lab03_Bai03
             {
                 try
                 {
-                    ClientSocket = ListenerSocket.Accept();
+                    ClientSocket = ListenerSocket.Accept(); // Accept kết nối từ client
                     ListView_Messages.Items.Add(new ListViewItem("New client connected"));
 
                     while (ClientSocket.Poll(-1, SelectMode.SelectRead) && ClientSocket.Available != 0)
                     {
+                        // Chuyển dữ liệu sang string rồi in ra ListView
                         string text = "";
 
                         do
@@ -90,10 +91,10 @@ namespace Lab03_Bai03
 
         private void Server_FormClosing(object sender, FormClosingEventArgs e)
         {
-            KeepListening = false;
+            KeepListening = false; // Để ngừng nhận kết nối
             if (ListenerSocket != null)
             {
-                ListenerSocket.Close();
+                ListenerSocket.Close(); // Đóng socket để ngừng chiếm dụng Endpoint
             }
         }
     }

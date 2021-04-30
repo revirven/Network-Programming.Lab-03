@@ -22,7 +22,6 @@ namespace Lab03_Bai01
         private void bttn_Send_Click(object sender, EventArgs e)
         {
             UdpClient udpClient = new UdpClient();
-            Byte[] sendBytes = Encoding.UTF8.GetBytes(TextBox_Message.Text);
 
             int udpPort;
             bool is_Int = Int32.TryParse(TextBox_Port.Text, out udpPort);
@@ -40,6 +39,7 @@ namespace Lab03_Bai01
                 return;
             }
 
+            Byte[] sendBytes = Encoding.UTF8.GetBytes(TextBox_Message.Text);
             udpClient.Send(sendBytes, sendBytes.Length, TextBox_IP.Text, udpPort);
             udpClient.Close(); // Đóng socket sau khi gửi
         }

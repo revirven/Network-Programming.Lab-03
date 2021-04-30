@@ -65,7 +65,7 @@ namespace Lab03_Bai02
             {
                 try
                 {
-                    clientSocket = listenerSocket.Accept();
+                    clientSocket = listenerSocket.Accept(); // Accept kết nối từ client
                     ListView_Commands.Items.Add(new ListViewItem("New client connected"));
 
                     // socket.connected chỉ trả về false khi phương thức socket.Close() được gọi.
@@ -75,6 +75,7 @@ namespace Lab03_Bai02
                     // Đối số -1 để tạm dừng chương trình vô thời hạn và chờ input của phía client.
                     while (clientSocket.Poll(-1, SelectMode.SelectRead) && clientSocket.Available != 0)
                     {
+                        // Chuyển dữ liệu nhận được sang string rồi in ra ListView
                         string text = "";
                         do
                         {
@@ -85,8 +86,8 @@ namespace Lab03_Bai02
                         ListView_Commands.Items.Add(new ListViewItem(text));
                     }
 
+                    // Client disconnected
                     ListView_Commands.Items.Add(new ListViewItem("Client disconnected"));
-                    clientSocket.Close();
                 }
                 catch (Exception) { };
             }
@@ -94,10 +95,10 @@ namespace Lab03_Bai02
 
         private void Listener_FormClosing(object sender, FormClosingEventArgs e)
         {
-            KeepListening = false;
+            KeepListening = false; // Để ngừng nhận kết nối
             if (listenerSocket != null)
             {
-                listenerSocket.Close();
+                listenerSocket.Close(); // Đóng socket để ngừng chiếm dụng Endpoint
             }
         }
     }
