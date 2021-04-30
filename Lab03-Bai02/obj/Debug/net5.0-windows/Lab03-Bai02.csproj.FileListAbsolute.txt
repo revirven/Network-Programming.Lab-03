@@ -1,0 +1,36 @@
+D:\Source-Code\Visual Studio\Network_Programming\Lab03\Lab03-Bai02\bin\Debug\net5.0-windows\Lab03-Bai02.exe
+D:\Source-Code\Visual Studio\Network_Programming\Lab03\Lab03-Bai02\bin\Debug\net5.0-windows\Lab03-Bai02.deps.json
+D:\Source-Code\Visual Studio\Network_Programming\Lab03\Lab03-Bai02\bin\Debug\net5.0-windows\Lab03-Bai02.runtimeconfig.json
+D:\Source-Code\Visual Studio\Network_Programming\Lab03\Lab03-Bai02\bin\Debug\net5.0-windows\Lab03-Bai02.runtimeconfig.dev.json
+D:\Source-Code\Visual Studio\Network_Programming\Lab03\Lab03-Bai02\bin\Debug\net5.0-windows\Lab03-Bai02.dll
+D:\Source-Code\Visual Studio\Network_Programming\Lab03\Lab03-Bai02\bin\Debug\net5.0-windows\ref\Lab03-Bai02.dll
+D:\Source-Code\Visual Studio\Network_Programming\Lab03\Lab03-Bai02\bin\Debug\net5.0-windows\Lab03-Bai02.pdb
+D:\Source-Code\Visual Studio\Network_Programming\Lab03\Lab03-Bai02\obj\Debug\net5.0-windows\Lab03-Bai02.csprojAssemblyReference.cache
+D:\Source-Code\Visual Studio\Network_Programming\Lab03\Lab03-Bai02\obj\Debug\net5.0-windows\Lab03_Bai02.Lab03_Bai02.resources
+D:\Source-Code\Visual Studio\Network_Programming\Lab03\Lab03-Bai02\obj\Debug\net5.0-windows\Lab03-Bai02.csproj.GenerateResource.cache
+D:\Source-Code\Visual Studio\Network_Programming\Lab03\Lab03-Bai02\obj\Debug\net5.0-windows\Lab03-Bai02.GeneratedMSBuildEditorConfig.editorconfig
+D:\Source-Code\Visual Studio\Network_Programming\Lab03\Lab03-Bai02\obj\Debug\net5.0-windows\Lab03-Bai02.AssemblyInfoInputs.cache
+D:\Source-Code\Visual Studio\Network_Programming\Lab03\Lab03-Bai02\obj\Debug\net5.0-windows\Lab03-Bai02.AssemblyInfo.cs
+D:\Source-Code\Visual Studio\Network_Programming\Lab03\Lab03-Bai02\obj\Debug\net5.0-windows\Lab03-Bai02.csproj.CoreCompileInputs.cache
+D:\Source-Code\Visual Studio\Network_Programming\Lab03\Lab03-Bai02\obj\Debug\net5.0-windows\Lab03-Bai02.dll
+D:\Source-Code\Visual Studio\Network_Programming\Lab03\Lab03-Bai02\obj\Debug\net5.0-windows\ref\Lab03-Bai02.dll
+D:\Source-Code\Visual Studio\Network_Programming\Lab03\Lab03-Bai02\obj\Debug\net5.0-windows\Lab03-Bai02.pdb
+D:\Source-Code\Visual Studio\Network_Programming\Lab03\Lab03-Bai02\obj\Debug\net5.0-windows\Lab03-Bai02.genruntimeconfig.cache
+C:\Users\Admin\Desktop\Lab03-19520604-TranNguyenDucHuy\Lab03-Bai02\bin\Debug\net5.0-windows\Lab03-Bai02.exe
+C:\Users\Admin\Desktop\Lab03-19520604-TranNguyenDucHuy\Lab03-Bai02\bin\Debug\net5.0-windows\Lab03-Bai02.deps.json
+C:\Users\Admin\Desktop\Lab03-19520604-TranNguyenDucHuy\Lab03-Bai02\bin\Debug\net5.0-windows\Lab03-Bai02.runtimeconfig.json
+C:\Users\Admin\Desktop\Lab03-19520604-TranNguyenDucHuy\Lab03-Bai02\bin\Debug\net5.0-windows\Lab03-Bai02.runtimeconfig.dev.json
+C:\Users\Admin\Desktop\Lab03-19520604-TranNguyenDucHuy\Lab03-Bai02\bin\Debug\net5.0-windows\Lab03-Bai02.dll
+C:\Users\Admin\Desktop\Lab03-19520604-TranNguyenDucHuy\Lab03-Bai02\bin\Debug\net5.0-windows\ref\Lab03-Bai02.dll
+C:\Users\Admin\Desktop\Lab03-19520604-TranNguyenDucHuy\Lab03-Bai02\bin\Debug\net5.0-windows\Lab03-Bai02.pdb
+C:\Users\Admin\Desktop\Lab03-19520604-TranNguyenDucHuy\Lab03-Bai02\obj\Debug\net5.0-windows\Lab03-Bai02.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\Lab03-19520604-TranNguyenDucHuy\Lab03-Bai02\obj\Debug\net5.0-windows\Lab03_Bai02.Lab03_Bai02.resources
+C:\Users\Admin\Desktop\Lab03-19520604-TranNguyenDucHuy\Lab03-Bai02\obj\Debug\net5.0-windows\Lab03-Bai02.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Lab03-19520604-TranNguyenDucHuy\Lab03-Bai02\obj\Debug\net5.0-windows\Lab03-Bai02.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Desktop\Lab03-19520604-TranNguyenDucHuy\Lab03-Bai02\obj\Debug\net5.0-windows\Lab03-Bai02.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\Lab03-19520604-TranNguyenDucHuy\Lab03-Bai02\obj\Debug\net5.0-windows\Lab03-Bai02.AssemblyInfo.cs
+C:\Users\Admin\Desktop\Lab03-19520604-TranNguyenDucHuy\Lab03-Bai02\obj\Debug\net5.0-windows\Lab03-Bai02.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Lab03-19520604-TranNguyenDucHuy\Lab03-Bai02\obj\Debug\net5.0-windows\Lab03-Bai02.dll
+C:\Users\Admin\Desktop\Lab03-19520604-TranNguyenDucHuy\Lab03-Bai02\obj\Debug\net5.0-windows\ref\Lab03-Bai02.dll
+C:\Users\Admin\Desktop\Lab03-19520604-TranNguyenDucHuy\Lab03-Bai02\obj\Debug\net5.0-windows\Lab03-Bai02.pdb
+C:\Users\Admin\Desktop\Lab03-19520604-TranNguyenDucHuy\Lab03-Bai02\obj\Debug\net5.0-windows\Lab03-Bai02.genruntimeconfig.cache
