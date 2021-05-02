@@ -60,6 +60,9 @@ namespace Lab03_Bai04
                         string ClientName = MessageMethod.Recv(AcceptedClient.GetCurrentConnection()).Trim('\r', '\n');
                         AcceptedClient.SetClientName(ClientName);
 
+                        BroadcastMessage(AcceptedClient.GetClientName() + " (" + AcceptedClient.GetClientIp() + ":" + AcceptedClient.GetClientPort()
+                            + ") has connected\n\n");
+
                         ClientList.Add(AcceptedClient);
                         
                         Thread TcpThread = new Thread(ProcessingTcpClients);
@@ -68,7 +71,7 @@ namespace Lab03_Bai04
                     }
                     catch (Exception)
                     {
-                        // Khi gọi TcpListener.Stop(), chương trình sẽ báo lỗi việc Listen bị gián đoạn
+                        // Khi gọi TcpListener.Stop(), chương trình sẽ báo lỗi việc Listen bị gián đoạn (Blocking operation was interuptted)
                     }
                 }
             }
@@ -83,28 +86,32 @@ namespace Lab03_Bai04
         void ProcessingTcpClients(object obj)
         {
             ClientConnection AcceptedClient = (ClientConnection)obj;
-            
-            while (AcceptedClient.GetCurrentConnection().Client.Poll(-1, SelectMode.SelectRead)
-                && AcceptedClient.GetCurrentConnection().Client.Available != 0)
+
+            try
             {
-                string message = DateTime.Now.ToString("HH:mm:ss")
-                    + " " + AcceptedClient.GetClientName()
-                    + ": " + MessageMethod.Recv(AcceptedClient.GetCurrentConnection());
+                while (AcceptedClient.GetCurrentConnection().Client.Poll(-1, SelectMode.SelectRead)
+                && AcceptedClient.GetCurrentConnection().Client.Available != 0)
+                {
+                    string message = DateTime.Now.ToString("HH:mm:ss")
+                        + " " + AcceptedClient.GetClientName()
+                        + ": " + MessageMethod.Recv(AcceptedClient.GetCurrentConnection());
 
-                RichTextBox_Messages.Text += message;
-                BroadcastMessage(message);
+                    RichTextBox_Messages.Text += message;
+                    BroadcastMessage(message);
+                }
+
+                string notification = '\n' + AcceptedClient.GetClientName()
+                    + " (" + AcceptedClient.GetClientIp()
+                    + ':' + AcceptedClient.GetClientPort() + ") "
+                    + "has disconnected\n\n";
+
+                RichTextBox_Messages.Text += notification;
+                BroadcastMessage(notification);
+
+                AcceptedClient.GetCurrentConnection().Close();
+                ClientList.Remove(AcceptedClient);
             }
-
-            string notification = '\n' + AcceptedClient.GetClientName()
-                + " (" + AcceptedClient.GetClientIp()
-                + ':' + AcceptedClient.GetClientPort() + ") "
-                + "has disconnected\n\n";
-
-            RichTextBox_Messages.Text += notification;
-            BroadcastMessage(notification);
-
-            AcceptedClient.GetCurrentConnection().Close();
-            ClientList.Remove(AcceptedClient);
+            catch (Exception) { }; // Tương tự, như việc catch Exception ở dòng 69, để bỏ qua thông báo gián việc nhận dữ liệu
         }
 
         public void BroadcastMessage(string message)
@@ -120,8 +127,19 @@ namespace Lab03_Bai04
             if (TCPListener != null)
             {
                 KeepListening = false;
+                foreach (ClientConnection ConnectedClient in ClientList)
+                {
+                    ConnectedClient.GetCurrentConnection().Close();
+                }
+                ClientList.RemoveAll(GetStatus);
                 TCPListener.Stop();
             }
+        }
+
+        bool GetStatus(ClientConnection Client)
+        {
+            if (Client.GetCurrentConnection().Connected != false) return false;
+            return true;
         }
     }
 }

@@ -28,35 +28,40 @@ namespace Lab03_Bai04
 
         private void button_Connect_Click(object sender, EventArgs e)
         {
-            if (TCPClient == null)
+            // Một cách xử lý khác để không phụ thuộc vào việc enable và disable nút connect
+            // if (TCPClient == null || (TCPClient != null && TCPClient.Connected == false))
+            // {
+            //      phần bên dưới
+            // }
+
+            try
             {
-                try
-                {
-                    TCPClient = new TcpClient();
-                    TCPClient.Connect(IpEndPoint);
-                    button_Connect.Enabled = false;
+                TCPClient = new TcpClient();
+                TCPClient.Connect(IpEndPoint);
 
-                    string addr = ((IPEndPoint)TCPClient.Client.RemoteEndPoint).Address.ToString();
-                    string port = ((IPEndPoint)TCPClient.Client.RemoteEndPoint).Port.ToString();
-                    RichTextBox_RecvMessages.Text += "Connected to " + addr + ':' + port + '\n';
+                // Để tránh việc tạo nhiều TcpClient trên cùng 1 form
+                button_Connect.Enabled = false;
 
-                    string name = "";
+                string addr = ((IPEndPoint)TCPClient.Client.RemoteEndPoint).Address.ToString();
+                string port = ((IPEndPoint)TCPClient.Client.RemoteEndPoint).Port.ToString();
+                RichTextBox_RecvMessages.Text += "Connected to " + addr + ':' + port + "\n\n";
 
-                    if (TextBox_Name.Text == string.Empty) name = "Unknown\n";
-                    else name = TextBox_Name.Text + '\n';
+                string name = "";
 
-                    MessageMethod.Send(TCPClient, name);
+                if (TextBox_Name.Text == string.Empty) name = "Unknown\n";
+                else name = TextBox_Name.Text + '\n';
 
-                    Thread RecvThread = new Thread(StartReceiving);
-                    RecvThread.IsBackground = true;
-                    RecvThread.Start(TCPClient);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Không thể connect, server không hoạt động.", "Error");
-                    TCPClient = null;
-                    return;
-                }
+                MessageMethod.Send(TCPClient, name);
+
+                Thread RecvThread = new Thread(StartReceiving);
+                RecvThread.IsBackground = true;
+                RecvThread.Start(TCPClient);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Không thể connect, server không hoạt động.", "Error");
+                TCPClient = null;
+                return;
             }
         }
 
@@ -71,25 +76,35 @@ namespace Lab03_Bai04
                     string message = MessageMethod.Recv(RecvTarget);
                     RichTextBox_RecvMessages.Text += message;
                 }
+
+                // Báo hiệu Server đóng kết nối, thực hiện đóng socket
+                RichTextBox_RecvMessages.Text += "Server closed connection.\n";
+                RecvTarget.Close();
+
+                // Cho phép connect lại
+                button_Connect.Enabled = true;
             }
-            catch (Exception) { }
+            catch (Exception) { } // Khi gọi TcpClient.Close(), chương trình sẽ báo lỗi gián đoạn việc nhận dữ liệu (Blocking operation was interuptted)
         }
 
         private void button_Send_Click(object sender, EventArgs e)
         {
             if (TCPClient != null)
             {
-                if (RichTextBox_Message.Text != string.Empty)
+                if (TCPClient.Connected == true)
                 {
-                    MessageMethod.Send(TCPClient, RichTextBox_Message.Text);
-                    RichTextBox_Message.Text = string.Empty;
-                }
+                    if (RichTextBox_Message.Text != string.Empty)
+                    {
+                        MessageMethod.Send(TCPClient, RichTextBox_Message.Text);
+                    }
+                }     
             }
+            RichTextBox_Message.Text = string.Empty;
         }
 
         // Nhấn Enter sẽ gửi message
         private void RichTextBox_Message_KeyPressed(object sender, KeyPressEventArgs e)
-       {
+        {
             if (e.KeyChar == (char)Keys.Enter)
             {
                 if (Control.ModifierKeys == Keys.Shift) {; }
